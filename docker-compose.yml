@@ -1,0 +1,33 @@
+version: "2.1"
+
+volumes:
+  postgres:
+
+services:
+
+  db:
+    container_name: db
+    image: postgres:9.6.5-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: xkcd
+      POSTGRES_USER: ${POSTGRES_USER-dev}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD-dev}
+    ports:
+      - 127.0.0.1:5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  node:
+    container_name: tryout_node
+    image: simbo/node:latest
+    volumes:
+      - ./data:/dock
+    working_dir: /dock
+    ports:
+      - 8080:7777
+    command: yarn run dev

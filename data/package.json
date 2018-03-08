@@ -1,0 +1,29 @@
+{
+  "name": "tryout",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Marco Wegner aka the infamous Acrolyt",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec \"ts-node\" ./src/index.ts"
+  },
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "denodeify": "^1.2.1",
+    "dotenv": "^4.0.0",
+    "hapi": "^17.2.2",
+    "moment": "^2.18.1",
+    "socket.io": "^2.0.3",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/denodeify": "^1.2.31",
+    "@types/dotenv": "^4.0.1",
+    "@types/node": "^8.0.26",
+    "@types/socket.io": "^1.4.30",
+    "@types/winston": "^2.3.5",
+    "nodemon": "^1.11.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  }
+}

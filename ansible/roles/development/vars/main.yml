@@ -1,0 +1,14 @@
+---
+
+app:
+  env: local
+
+jwt:
+  secret: this-is-a-totally-secret-key-that-should-be-kept-private
+  ttl: 15
+
+postgres:
+  host: db
+  port: 5432
+  user: dev
+  password: dev

@@ -1,0 +1,27 @@
+version: "2.1"
+
+services:
+
+  yarn:
+    container_name: yarn
+    image: simbo/node:latest
+    volumes:
+      - ./data/node:/dock
+    working_dir: /dock
+    entrypoint: yarn
+    command: install
+
+  psql:
+    container_name: psql
+    image: postgres:9.6.5-alpine
+    external_links:
+      - db:db
+    command: psql xkcd --host=db --username=${POSTGRES_USER-dev} --password
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.3.1-standalone
+    external_links:
+      - db:db
+    ports:
+      - 127.0.0.1:8081:8080

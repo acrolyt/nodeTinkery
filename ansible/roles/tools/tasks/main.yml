@@ -1,0 +1,11 @@
+---
+
+- name: Start pgAdmin
+  tags:
+    - pgadmin
+  shell: docker-compose -f docker-compose_tools.yml up -d pgadmin
+
+- name: Start Adminer
+  tags:
+    - adminer
+  shell: docker-compose -f docker-compose_tools.yml up -d adminer

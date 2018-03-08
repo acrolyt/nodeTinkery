@@ -1,0 +1,12 @@
+---
+
+- name: Install npm dependencies
+  tags:
+    - install
+    - yarn
+  shell: docker-compose -f docker-compose_tools.yml run --rm yarn install
+
+- name: Start main services for development
+  tags:
+    - start
+  shell: docker-compose up -d
